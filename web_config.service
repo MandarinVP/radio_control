@@ -7,7 +7,7 @@ User=root
 Group=root  
 Type=simple  
   
-WorkingDirectory=/home/pi/caesar_project
+WorkingDirectory=/home/pi/radio_control
 ExecStart=/usr/bin/waitress-serve --listen=0.0.0.0:8080 web_config:app
 Restart=always  
 RestartSec=5  
