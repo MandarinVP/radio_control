@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Чтение IP-адреса из файла
-IP_FILE="/home/pi/caesar_project/server_ip.cfg"
+IP_FILE="/home/pi/radio_control/server_ip.cfg"
 if [[ ! -f "$IP_FILE" ]]; then
   echo "File was not found: $IP_FILE"
   exit 1
