@@ -16,7 +16,7 @@ UDP_PORT = 5002
 TIMEOUT = 1.0
 CHECK_INTERVAL = 0.3
 MAGIC_PHRASE = b"PING_RESPONSE"
-SERVER_IP_FILE = "/home/pi/caesar_project/server_ip.cfg"
+SERVER_IP_FILE = "/home/pi/radio_control/server_ip.cfg"
 
 # Global variables for status
 current_rtt = None
@@ -477,22 +477,22 @@ def index():
 
 @app.route("/config", methods=["GET", "POST"])
 def config_editor():
-    server_config = read_config_file("/home/pi/caesar_project/server_ip.cfg")
-    client_config = read_config_file("/home/pi/caesar_project/client_ip.cfg")
+    server_config = read_config_file("/home/pi/radio_control/server_ip.cfg")
+    client_config = read_config_file("/home/pi/radio_control/client_ip.cfg")
     message = None
 
     if request.method == "POST":
         action = request.form.get("action")
         if action == "save_server":
             server_config = request.form.get("server_config", "")
-            write_config_file("/home/pi/caesar_project/server_ip.cfg", server_config)
+            write_config_file("/home/pi/radio_control/server_ip.cfg", server_config)
             message = "Server configuration saved successfully!"
         elif action == "save_client":
             client_config = request.form.get("client_config", "")
-            write_config_file("/home/pi/caesar_project/client_ip.cfg", client_config)
+            write_config_file("/home/pi/radio_control/client_ip.cfg", client_config)
             message = "Client configuration saved successfully!"
         elif action == "restart_services":
-            os.system("sudo /home/pi/caesar_project/restart_services_on_client.sh")
+            os.system("sudo /home/pi/radio_control/restart_services_on_client.sh")
             message = "Services restarted successfully!"
 
     return get_config_template(server_config, client_config, 'config', message)
