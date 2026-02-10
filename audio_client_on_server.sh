@@ -1,5 +1,5 @@
 #!/bin/bash
 
 # Audio stream receive
-gst-launch-1.0   udpsrc port=5000 caps="application/x-rtp,payload=96" !   rtpjitterbuffer latency=100 drop-on-latency=false !   queue max-size-time=50000000 leaky=downstream !   rtpopusdepay !   opusdec plc=true !   queue !   audioconvert !   queue !   autoaudiosink sync=false
+gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp,payload=96" ! rtpjitterbuffer latency=100 drop-on-latency=false ! queue max-size-time=50000000 leaky=downstream ! rtpopusdepay ! opusdec plc=true ! queue ! audioconvert ! queue ! pulsesink
 
