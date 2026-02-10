@@ -38,7 +38,7 @@ cat <<EOF > client_ip.cfg || { echo -e "${RED}Failed to create client_ip.cfg${NC
 192.168.90.172
 EOF
 
-# /usr/sbin/alsactl -f /var/lib/alsa/asound.state store
+/usr/sbin/alsactl -f /var/lib/alsa/asound.state store
 
 echo -e "${GREEN}Installing wiringOP...${NC}"
 pushd wiringOP/ || { echo -e "${RED}Failed to enter wiringOP directory${NC}"; exit 1; }
@@ -63,7 +63,7 @@ setup_service() {
 }
 
 services=("ptt_server" "check_client" "audio_server" "audio_client_on_server" 
-          "server_ping_responce" "web_config_server")
+          "server_ping_responce" "web_config_server" "alsa_restore")
 
 for service in "${services[@]}"; do
   setup_service "$service"
