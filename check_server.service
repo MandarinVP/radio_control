@@ -7,8 +7,8 @@ User=root
 Group=root  
 Type=simple  
   
-WorkingDirectory=/home/pi/caesar_project
-ExecStart=/home/pi/caesar_project/server_ping.py  
+WorkingDirectory=/home/pi/radio_control
+ExecStart=/home/pi/radio_control/server_ping.py  
 Restart=always  
 RestartSec=5  
   
