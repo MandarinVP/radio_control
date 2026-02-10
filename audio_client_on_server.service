@@ -3,12 +3,11 @@ Description=Audio client
 After=multi-user.target
 
 [Service]
-User=root
-Group=root
+User=pi
 Type=simple
 
-WorkingDirectory=/home/pi/caesar_project
-ExecStart=/home/pi/caesar_project/audio_client_on_server.sh
+WorkingDirectory=/home/pi/radio_control
+ExecStart=/home/pi/radio_control/audio_client_on_server.sh
 Restart=always
 RestartSec=5
 
