@@ -1,5 +1,5 @@
 [Unit]
-Description=Audio client
+Description=Server RX
 After=multi-user.target
 
 [Service]
