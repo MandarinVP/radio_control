@@ -3,7 +3,6 @@ Description=Client TX
 After=multi-user.target
 
 [Service]
-User=pi
 Type=simple
 
 WorkingDirectory=/home/pi/radio_control
